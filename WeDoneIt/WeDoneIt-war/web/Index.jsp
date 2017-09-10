@@ -14,11 +14,13 @@
     </head>
     <body>
         <jsp:include page="Framework.Inputs/TextBox.jsp">
-            <jsp:param name="name" value="SET0001_NOME"/>
+            <jsp:param name="name" value="SET0001_TEXT"/>
         </jsp:include>
         <br/>
         <br/>
         <br/>
-        <%@ include file="Framework.Inputs/NumberBox.jsp" %>
+        <jsp:include page="Framework.Inputs/NumberBox.jsp">
+            <jsp:param name="name" value="SET0001_NUMBER"/>
+        </jsp:include>
     </body>
 </html>
