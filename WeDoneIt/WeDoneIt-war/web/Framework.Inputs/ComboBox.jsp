@@ -1,7 +1,7 @@
 <%-- 
     Document   : ComboBox
     Created on : 11/09/2017, 22:15:11
-    Author     : Heitor
+    Author     : Heitor Victor
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

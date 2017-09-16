@@ -1,7 +1,7 @@
 <%-- 
     Document   : Index
     Created on : 07/09/2017, 20:37:30
-    Author     : heito
+    Author     : Heitor Victor
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,6 +41,22 @@
         </jsp:include>
         <jsp:include page="Framework.Inputs/ComboBox.jsp">
             <jsp:param name="name" value="SET0001_COMBOBOX"/>
+        </jsp:include>
+        <br/>
+        <jsp:include page="Framework.Inputs/LabelBox.jsp">
+            <jsp:param name="label" value="E-mail"/>
+            <jsp:param name="for" value="SET0001_EMAILBOX"/>
+        </jsp:include>
+        <jsp:include page="Framework.Inputs/EmailBox.jsp">
+            <jsp:param name="name" value="SET0001_EMAILBOX"/>
+        </jsp:include>
+        <br/>
+        <jsp:include page="Framework.Inputs/LabelBox.jsp">
+            <jsp:param name="label" value="Input Celphone"/>
+            <jsp:param name="for" value="SET0001_CELPHONE"/>
+        </jsp:include>
+        <jsp:include page="Framework.Inputs/InputCelphone.jsp">
+            <jsp:param name="name" value="SET0001_CELPHONE"/>
         </jsp:include>
     </body>
 </html>
