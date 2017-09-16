@@ -1,7 +1,7 @@
 <%-- 
     Document   : NumberBox
     Created on : 08/09/2017, 23:11:23
-    Author     : heito
+    Author     : Heitor Victor
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="input-group input-group-sm ajuste">

@@ -1,7 +1,7 @@
 <%-- 
     Document   : DatePicker
     Created on : 11/09/2017, 21:58:51
-    Author     : Heitor
+    Author     : Heitor Victor
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
