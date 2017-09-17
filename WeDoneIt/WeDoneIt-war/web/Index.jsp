@@ -50,13 +50,21 @@
         <jsp:include page="Framework.Inputs/EmailBox.jsp">
             <jsp:param name="name" value="SET0001_EMAILBOX"/>
         </jsp:include>
-        <br/>
+
         <jsp:include page="Framework.Inputs/LabelBox.jsp">
             <jsp:param name="label" value="Input Celphone"/>
             <jsp:param name="for" value="SET0001_CELPHONE"/>
         </jsp:include>
         <jsp:include page="Framework.Inputs/InputCelphone.jsp">
             <jsp:param name="name" value="SET0001_CELPHONE"/>
+        </jsp:include>
+        <br/>
+        <jsp:include page="Framework.Inputs/LabelBox.jsp">
+            <jsp:param name="label" value="Input ZipCode/CEP"/>
+            <jsp:param name="for" value="SET0001_ZIPCODE"/>
+        </jsp:include>
+        <jsp:include page="Framework.Inputs/InputZipCode.jsp">
+            <jsp:param name="name" value="SET0001_ZIPCODE"/>
         </jsp:include>
     </body>
 </html>
