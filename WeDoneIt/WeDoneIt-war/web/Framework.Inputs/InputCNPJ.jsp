@@ -1,12 +1,12 @@
 <%-- 
-    Document   : InputZipCode
-    Created on : 17/09/2017, 13:42:30
+    Document   : InputCNPJ
+    Created on : 17/09/2017, 14:54:14
     Author     : Heitor Victor
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="input-group input-group-sm ajuste">
-    <input onkeydown="zipCodeMask(event)" type="text" maxlength="11" class="form-control" id="<c:out value='${param.name}'/>" name="<c:out value='${param.name}'/>" style="margin-left: 1%; width: 90%; margin-right: 1%;"/><div id="NOTY_<c:out value='${param.name}'/>" style="margin-left:10px; margin-right: 10px;"></div>
+    <input onkeydown="cnpjMask(event)" maxlength="18" type="text" class="form-control" id="<c:out value='${param.name}'/>" name="<c:out value='${param.name}'/>" style="margin-left: 1%; width: 90%; margin-right: 1%;"/><div id="NOTY_<c:out value='${param.name}'/>" style="margin-left:10px; margin-right: 10px;"></div>
 </div>
 
 <script type="text/javascript">
@@ -26,10 +26,15 @@
                 return;
             }
             var v = $("#<c:out value='${param.name}'/>").val();
-            if (v.match(/^\d{5}$/) !== null) {
-                $("#<c:out value='${param.name}'/>").val(v + ' - ');
+            if (v.match(/^\d{2}$/) !== null) {
+                $("#<c:out value='${param.name}'/>").val(v + '.');
+            } else if (v.match(/\d{3}$/) !== null && v.length < 7) {
+                $("#<c:out value='${param.name}'/>").val(v + '.');
+            } else if (v.match(/\d{3}$/) !== null && v.length < 11) {
+                $("#<c:out value='${param.name}'/>").val(v + '/');
+            } else if (v.match(/\d{4}$/) !== null) {
+                $("#<c:out value='${param.name}'/>").val(v + '-');
             }
         });
     });
 </script>
-
