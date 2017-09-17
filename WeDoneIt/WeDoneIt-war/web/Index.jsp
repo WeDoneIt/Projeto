@@ -66,5 +66,13 @@
         <jsp:include page="Framework.Inputs/InputZipCode.jsp">
             <jsp:param name="name" value="SET0001_ZIPCODE"/>
         </jsp:include>
+        <br/>
+        <jsp:include page="Framework.Inputs/LabelBox.jsp">
+            <jsp:param name="label" value="Input CNPJ"/>
+            <jsp:param name="for" value="SET0001_CNPJ"/>
+        </jsp:include>
+        <jsp:include page="Framework.Inputs/InputCNPJ.jsp">
+            <jsp:param name="name" value="SET0001_CNPJ"/>
+        </jsp:include>
     </body>
 </html>
