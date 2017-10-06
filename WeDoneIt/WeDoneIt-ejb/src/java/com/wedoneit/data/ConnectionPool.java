@@ -13,14 +13,14 @@ import java.sql.SQLException;
  */
 public class ConnectionPool {
     private static String usuario="root";
-    private static String senha="felipe1994";
+    private static String senha="WebDEVELOPMENT.2017";
     private static String banco="wedoneit";
     private static String ip="localhost";
     private static String driver="com.mysql.jdbc.Driver";
     private static Connection conexao = null;
 
     //padrao singleton
-    public static Connection getConnection() {
+    public Connection getConnection() {
         System.out.println(">>Conectando ao banco");
         try {
             Class.forName(driver);
@@ -38,21 +38,20 @@ public class ConnectionPool {
 
     }
 
-    public static void closeConnection(){
+    public void closeConnection(){
         try{
             if(conexao!=null && !conexao.isClosed()){
                 conexao.close();
                 System.out.println(">>Conexao encerrada com sucesso");
             }
-        }catch (Exception e) {
-            e.printStackTrace();
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
 
     public static void main(String[] args) {
-        System.out.println("conexao: "+getConnection());
-        System.out.println("conexao: "+getConnection());
-        System.out.println("conexao: "+getConnection());
+        ConnectionPool con = new ConnectionPool();
+        System.out.println("conexao: "+ con.getConnection());
     }
 
 }
