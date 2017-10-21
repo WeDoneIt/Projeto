@@ -12,11 +12,11 @@ import java.sql.SQLException;
  * @author Felipe
  */
 public class ConnectionPool {
-    private static String usuario="root";
-    private static String senha="WebDEVELOPMENT.2017";
-    private static String banco="wedoneit";
-    private static String ip="localhost";
-    private static String driver="com.mysql.jdbc.Driver";
+    private static final String usuario="root";
+    private static final String senha="WebDEVELOPMENT.2017";
+    private static final String banco="wedoneit";
+    private static final String ip="localhost";
+    private static final String driver="com.mysql.jdbc.Driver";
     private static Connection conexao = null;
 
     //padrao singleton
@@ -25,7 +25,7 @@ public class ConnectionPool {
         try {
             Class.forName(driver);
             if(conexao==null || conexao.isClosed()){
-                conexao=DriverManager.getConnection("jdbc:mysql://"+ip+"/"+banco+"",usuario, senha);
+                conexao = DriverManager.getConnection("jdbc:mysql://"+ip+"/"+banco+"",usuario, senha);
             }
             return conexao; 
         }catch (ClassNotFoundException e) {    

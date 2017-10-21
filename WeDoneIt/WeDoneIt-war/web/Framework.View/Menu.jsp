@@ -3,11 +3,9 @@
     Created on : 26/09/2017, 20:17:44
     Author     : Heitor Victor
 --%>
-<%@page import="FrameWork_Menu.Opcoes"%>
-<%@page import="FrameWork_Menu.Menu"%>
-<%@page import="FrameWork_Menu.MontaMenu"%>
+<%@page import="FrameWork_Menu.*"%>
 <%@page import="java.util.List"%>
-<%@page import="FrameWork_Menu.Module"%>
+
 <style>
     *{margin: 0px; padding: 0px;}
     .menu{height: 100%; position: fixed; background-color: #222; top: 0px; overflow: hidden; transition: all 0.2s; z-index: 0;}
@@ -27,32 +25,21 @@
 </style>
 
 <div id="bg"></div>
-<!--<nav class="menu" id="principal">
-    <ul>
-        <li><a href="" class="voltar">Voltar</a></li>
-<%
-//    MontaMenu montaMenu = new MontaMenu();
-//    List<Module> module = montaMenu.listaModulos();
-//    for (int i = 0; i < module.size(); i++) {
-%>
-        <li><a href="#"><% // out.print(module.get(i).getName()); %></a></li>
-<%
-//    }
-%>
-    </ul>
-</nav>-->
+
+<% MontaMenu menu = new MontaMenu();%>
+<% List<Module> modulos = menu.listaModulos(); %>
 
 <nav class="menu" id="principal">
     <ul>
-        <li><a href="" class="voltar">Voltar</a></li>
-        <li><a href="#">Home</a></li>
+        <li><a href="#" class="voltar" id="back">Voltar</a></li>
+        
         <li><a href="#">Fórum</a></li>
         <li><a href="#cursos">Cursos<span>+</span></a></li>
         <li><a href="#">Sobre</a></li>
         <li><a href="#contato">Contato<span>+</span></a></li>
     </ul>
 </nav>    
-    
+
 <nav class="menu" id="cursos">
     <ul>
         <li><a href="#" class="voltar">Voltar</a></li>
@@ -70,3 +57,9 @@
         <li><a href="#">Twitter</a></li>
     </ul>
 </nav>
+
+<script>
+    $('#back').click(function (){
+       document.getElementById('chk').checked = false;
+    });
+</script>

@@ -7,8 +7,9 @@ package FrameWork_Menu;
 
 /**
  *
- * @author heito
+ * @author Heitor Victor
  */
+
 import com.wedoneit.data.ConnectionPool;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,21 +20,31 @@ import java.util.List;
 
 public class MontaMenu {
 
-    private static final ConnectionPool connectionPool = new ConnectionPool();
+    private static Connection conn = null;
+    private static PreparedStatement prst = null;
+    private static ResultSet rs = null;
 
-    public static List<Module> listaModulos(){
+    private final String teste = "Foi testado e rodou";
+
+    public String getTeste() {
+        return teste;
+    }
+    
+    public static List<Module> listaModulos() throws SQLException{
         List<Module> modulos = new ArrayList<>();
         try{
             String sql = "SELECT * FROM MODULE";
-            Connection conn = connectionPool.getConnection();
-            PreparedStatement prst = conn.prepareStatement(sql);
-            ResultSet rs = prst.executeQuery(sql);
+            ConnectionPool connection = new ConnectionPool();
+            conn = connection.getConnection();    
+            prst = conn.prepareStatement(sql);
+            rs = prst.executeQuery(sql);
             while (rs.next()) {                
                 Module module = new Module();
                 module.setId(Integer.parseInt(rs.getString("MODULE_ID")));
                 module.setName(rs.getString("MODULE_NAME"));
                 modulos.add(module);
             }
+            conn.close();
             return modulos;
         }catch(SQLException e){
             System.out.println("Erro: " + e.getMessage());
@@ -45,9 +56,10 @@ public class MontaMenu {
         List<Menu> menus = new ArrayList<>();
         try{
             String sql = "SELECT * FROM MENU";
-            Connection conn = connectionPool.getConnection();
-            PreparedStatement prst = conn.prepareStatement(sql);
-            ResultSet rs = prst.executeQuery(sql);
+            ConnectionPool connection = new ConnectionPool();
+            conn = connection.getConnection();  
+            prst = conn.prepareStatement(sql);
+            rs = prst.executeQuery(sql);
             while (rs.next()) {                
                 Menu menu = new Menu();
                 menu.setId(Integer.parseInt(rs.getString("MENU_ID")));
@@ -55,6 +67,7 @@ public class MontaMenu {
                 menu.setModulo_id(Integer.parseInt(rs.getString("MENU_IDMODULE")));
                 menus.add(menu);
             }
+            conn.close();
             return menus;
         }catch(SQLException e){
             System.out.println("Erro: " + e.getMessage());
@@ -66,9 +79,10 @@ public class MontaMenu {
         List<Opcoes> opcoes = new ArrayList<>();
         try{
             String sql = "SELECT * FROM OPCOES";
-            Connection conn = connectionPool.getConnection();
-            PreparedStatement prst = conn.prepareStatement(sql);
-            ResultSet rs = prst.executeQuery(sql);
+            ConnectionPool connection = new ConnectionPool();
+            conn = connection.getConnection();    
+            prst = conn.prepareStatement(sql);
+            rs = prst.executeQuery(sql);
             while (rs.next()) {                
                 Opcoes opcao = new Opcoes();
                 opcao.setId(Integer.parseInt(rs.getString("OPCAO_ID")));
@@ -76,6 +90,8 @@ public class MontaMenu {
                 opcao.setMenu_id(Integer.parseInt(rs.getString("OPCAO_IDMENU")));
                 opcoes.add(opcao);
             }
+            
+            conn.close();
             return opcoes;
         }catch(SQLException e){
             System.out.println("Erro: " + e.getMessage());
@@ -83,7 +99,7 @@ public class MontaMenu {
         }
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         List<Module> module = listaModulos();
         List<Menu> menu = listaMenu();
         List<Opcoes> opcoes = listaOpcoes();

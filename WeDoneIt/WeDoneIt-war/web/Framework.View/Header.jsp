@@ -23,4 +23,4 @@
     </div>
 </header>
 <input type="checkbox" id="chk">
-<label for="chk" class="menu-icon">&#9776;</label>
+<label for="chk" class="menu-icon" id="lbl_chk">&#9776;</label>
